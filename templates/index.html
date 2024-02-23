@@ -1,0 +1,25 @@
+<html>
+    <link rel="stylesheet" href="/static/style.css">
+    <body>
+        <h1>Cerca</h1>
+        <form method="POST">
+            <table>
+                <tr><td>{{form.cap.label}}</td><td>{{form.cap}}</td></tr>
+                <tr><td>{{form.choice.label}}</td><td>{{form.choice}}</td></tr>
+                <tr><td></td><td>{{form.submit}}</td></tr>
+            </table>
+        </form>
+        {% if cap != -1 %}
+            <h3>Risultati per il CAP {{cap}}</h3>
+        {% endif %}
+        <ul>
+            {% for c in cantieri %}
+                <li><b>Id:</b> {{c.id}} - <b>Indirizzo:</b> {{c.indirizzo}}</li>
+            {% endfor %}
+            {% for u in umarell %}
+                <li><b>Id:</b> {{u.id}} - <b>Nome:</b> {{u.nome}} - <b>Cognome:</b> {{u.cognome}}</li>
+            {% endfor %}
+        </ul>
+        {{msg}}
+    </body>
+</html>
